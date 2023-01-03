@@ -515,6 +515,11 @@ footer {
     margin-top: 50px;
     text-align: center;
   }
+
+  
+#message-success {
+  left: 0 !important;
+}
 }
 
 @keyframes modalopen {
@@ -527,3 +532,20 @@ footer {
   }
 }
 
+/*************************************** UPDATE*********************************/
+
+#chk_option_location_error, #chk_option_first_error, #chk_option_termofuse_error, #chk_option_last_error, #chk_option_email_error, #chk_option_birthdate_error, #chk_option_quantity_error{
+  display: none;
+  color: #ff0000;
+}
+
+#message-success {
+  display: none;
+  position: absolute;
+  padding: 10px;
+  top: 650px;
+  left: 500px;
+  background-color: #6ddc2c;
+  color: white;
+  border: solid greenyellow 1px;
+}
