@@ -53,13 +53,17 @@
 
     <div class="bground">
       <div class="content">
-        <span class="close"></span>
+        <span class="close js-close-button"></span>
         <div class="modal-body">
           <form name="reserve" method="post" id="form" >
             <div class="formData">
               <label for="first">Prénom</label><br>
+              
               <input class="text-control" type="text" id="first" name="first"/><br>
-              <div id="chk_option_first_error"><p class="text-label">Veuillez entrer 2 caractères ou plus pour le champ du prénom.</p></div>
+              
+              <!-- <div id="chk_option_first_error"><p class="text-label">Veuillez entrer 2 caractères ou plus pour le champ du prénom.</p></div> -->
+
+
             </div>
             <div class="formData">
               <label for="last">Nom</label><br>
@@ -108,7 +112,7 @@
                 <span class="checkbox-icon"></span>
                 Portland</label>
             </div>
-            <div id="chk_option_location_error"><p class="text-label">Veuillez coccher une case s'il vous plaît.</p></div>
+            <div id="chk_option_location_error"></div>
             
             <div class="formData">
               <input name="termofuse" class="checkbox-input" type="checkbox" id="checkbox1" checked/>
