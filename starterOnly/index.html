@@ -13,7 +13,7 @@
 <body>
   <div class="topnav" id="myTopnav">
     <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
+      <img class="logo" alt="logo" src="Logo.png" width="auto" height="auto" />
     </div>
     <div class="main-navbar">
       <a href="#" class="active"><span>Accueil</span></a>
@@ -58,32 +58,27 @@
           <form name="reserve" method="post" id="form" >
             <div class="formData">
               <label for="first">Prénom</label><br>
-              <input class="text-control" type="text" id="first" name="first"/><br>
-              <div id="chk_option_first_error"><p class="text-label">Veuillez entrer 2 caractères ou plus pour le champ du prénom.</p></div>
+              <input class="text-control" type="text" minlength="2" id="first" name="first" required/>
             </div>
             <div class="formData">
               <label for="last">Nom</label><br>
-              <input class="text-control" type="text" id="last"  name="last"/><br>
-              <div id="chk_option_last_error"><p class="text-label">Veuillez entrer 2 caractères ou plus pour le champ du nom.</p></div>
+              <input class="text-control" type="text" minlength="2" id="last"  name="last" required/>
             </div>
             <div class="formData">
               <label for="email">E-mail</label><br>
-              <input class="text-control"  id="email" name="email" /><br>
-              <div id="chk_option_email_error"><p class="text-label">Veuillez entrer un email valide.</p></div>
+              <input class="text-control" type="email"  id="email" name="email" required/>
             </div>
             <div class="formData">
               <label for="birthdate">Date de naissance</label><br>
-              <input class="text-control" type="date" id="birthdate" name="birthdate"/><br>
-              <div id="chk_option_birthdate_error"><p class="text-label">Vous devez entrer votre date de naissance.</p></div>
+              <input class="text-control" type="date" id="birthdate" name="birthdate" required/>
             </div>
             <div class="formData" id="formData">
-              <label for>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-              <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" >
-              <div id="chk_option_quantity_error"><p class="text-label">Veuillez nous donner votre nombre de participation</p></div>
+              <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+              <input type="number" class="text-control" id="quantity" type="number" name="quantity" min="0" max="99" required/>
             </div>
-            <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
             <div class="formData" required>
-              <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" />
+              <label for="location">A quel tournoi souhaitez-vous participer cette année ?</label><br>
+              <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" required />
               <label class="checkbox-label" for="location1">
                 <span class="checkbox-icon"></span>
                 New York</label>
@@ -107,16 +102,15 @@
               <label class="checkbox-label" for="location6">
                 <span class="checkbox-icon"></span>
                 Portland</label>
+                <div id="location-error"></div>
             </div>
-            <div id="chk_option_location_error"><p class="text-label">Veuillez coccher une case s'il vous plaît.</p></div>
-            
             <div class="formData">
-              <input name="termofuse" class="checkbox-input" type="checkbox" id="checkbox1" checked/>
+              <input name="termofuse" class="checkbox-input" type="checkbox" id="checkbox1" checked required/>
               <label class="checkbox2-label" for="checkbox1">
                 <span class="checkbox-icon"></span>
                 J'ai lu et accepté les conditions d'utilisation.
               </label>
-              <div id="chk_option_termofuse_error"><p class="text-label">Veuillez coccher cette case s'il vous plaît.</p></div>
+              <div id="termOfUse"></div>
               <br>
               <input class="checkbox-input" type="checkbox" id="checkbox2" />
               <label class="checkbox2-label" for="checkbox2">
