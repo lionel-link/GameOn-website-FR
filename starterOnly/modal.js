@@ -44,6 +44,9 @@ form.addEventListener('submit', (e) => {
   if (handleData(e)) {
     closeModal();
     MessageSuccess.style.display = 'block';
+    setInterval(() => {
+      MessageSuccess.style.display = 'none';
+    }, 4000);
   }
 });
 
