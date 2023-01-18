@@ -600,8 +600,43 @@ footer {
   z-index: 9999;
 }
 
+.content-success-modal {
+  height: 90%;
+}
+
+.modal-backgrd {
+  display: none;
+}
+
+.modal-close {
+  right: 15px;
+  top: 15px;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-weight: 400;
+  font-size: 36px;
+}
+
+.modal-body-success {
+  margin: 200px auto;
+  height: 70%;
+}
+
+.modal-body-text {
+  text-align: center;
+  padding-top: 90px;
+}
+
 .text-label {
   color: #ff0000;
+}
+
+.close-modal-success {
+  margin-top: auto;
 }
 
 #termOfUse {

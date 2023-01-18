@@ -11,6 +11,9 @@ function editNav() {
 const modalbg = document.querySelector('.bground');
 const modalBtn = document.querySelectorAll('.modal-btn');
 const closeButton = document.querySelector('.close');
+const closeModalSuccess = document.querySelector('.close-modal');
+const modalSuccess = document.querySelector('.modal-backgrd');
+const closeModalSuccess2 = document.querySelector('.close-modal-success');
 const form = document.getElementById('form');
 const formData = document.getElementById('formData');
 const MessageSuccess = document.getElementById('message-success');
@@ -32,10 +35,17 @@ function launchModal() {
 
 // Close modal event
 closeButton.addEventListener('click', closeModal);
+closeModalSuccess.addEventListener('click', closeModalSucces);
+closeModalSuccess2.addEventListener('click', closeModalSucces);
 
 // Close modal form
 function closeModal() {
   modalbg.style.display = 'none';
+}
+
+// Close modal success
+function closeModalSucces() {
+  modalSuccess.style.display = 'none';
 }
 
 // fonction submit
@@ -43,10 +53,8 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
   if (handleData(e)) {
     closeModal();
-    MessageSuccess.style.display = 'block';
-    setInterval(() => {
-      MessageSuccess.style.display = 'none';
-    }, 4000);
+    form.reset();
+    modalSuccess.style.display = 'block';
   }
 });
 
@@ -60,7 +68,7 @@ function handleData(e) {
   let tournoiCheck = true;
   let termOfUseCheck = true;
 
-  if (form_data.get('first').trim().length < 2) {
+  if (!validateName(form_data.get('first'))) {
     showError(firstname, 'firstname', 'Veuillez entrer plus de 2 lettres');
     firstCheck = false;
   } else {
@@ -68,7 +76,7 @@ function handleData(e) {
     firstCheck = true;
   }
 
-  if (form_data.get('last').trim().length < 2) {
+  if (!validateName(form_data.get('last'))) {
     showError(lastname, 'lastname', 'Veuillez entrer plus de 2 lettres');
     lastCheck = false;
   } else {
@@ -92,7 +100,7 @@ function handleData(e) {
     birthdateCheck = true;
   }
 
-  if (!form_data.get('quantity').trim()) {
+  if (!(form_data.get('quantity') >= 0)) {
     showError(quantity, 'quantity', 'Veuillez entrer votre nombre de participation');
     quantityCheck = false;
   } else {
@@ -126,6 +134,11 @@ function handleData(e) {
 function validateEmail(email) {
   const re = /\w+@\w+\.\w+/;
   return re.test(email);
+}
+
+function validateName(name) {
+  const re = /^([a-zA-Z]){2,20}$/;
+  return re.test(name);
 }
 
 function showError(element, errorBlock, errorMessage) {
